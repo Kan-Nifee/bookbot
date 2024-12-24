@@ -1,5 +1,7 @@
 def main ():
-    with open("books/frankenstein.txt") as f:
+    path_to_file = "books/frankenstein.txt"
+    
+    with open(path_to_file) as f:
         file_contents = f.read()
     
     #splits text file into whole words based on wite space for counting later.
@@ -10,7 +12,6 @@ def main ():
     #iterates over previously split words and adds them to count for tallying
     for each_word in words:
         count += 1
-    print (count)
     
     #NEW OPERATION for tallying idividual characters (letters) so letters can be counted
     chars = list(file_contents.lower())  #Holds individual lettter from Text fil for looping throught and tallyiong
@@ -26,7 +27,15 @@ def main ():
     for char in chars:
         if char in char_count:
             char_count[char] += 1
-            
-    print (char_count)
-
+    
+    
+    
+    
+    print (f"--- Begin report of {path_to_file} ---")        
+    print (f"{count} words were found in the document")
+    
+    for letter, value in char_count.items():
+        print (f"The {letter} charactger was found {value} times")
+        
+    print ("--- End report ---")
 main()
