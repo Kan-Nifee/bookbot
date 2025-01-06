@@ -37,12 +37,13 @@ def main ():
     #Next Process
     
 #word finder, searches doc and record numer of instances of words
-    input_word = "Doctor-this is a test" #this is a test
+    input_word = "frankenstein" #this is a test
     
     context = []        
     how_many = 0
     for word in just_words:
-        if word == input_word:
+        lower_word = word.lower()
+        if lower_word == input_word:
             context.append(word)
             how_many += 1
             
